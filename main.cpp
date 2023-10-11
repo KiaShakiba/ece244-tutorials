@@ -5,15 +5,43 @@
 #include <ece244/struct_test.hpp>
 
 int main() {
-	int num = 5;
-	int* ptr = &num;
+	LinkedList* list = new LinkedList();
 
-	std::cout << "(before) num = " << num << std::endl;
-
-	ptr += 8;
-	*ptr += 3;
-
-	std::cout << "(after) num = " << num << std::endl;
+	list->push_front(5);
 
 	return 0;
 }
+
+/*
+ * The C++ way
+int main() {
+	int* nums = new int[5];
+
+	for (int i=0; i<5; i++) {
+		nums[i] = i;
+		std::cout << nums[i] << std::endl;
+	}
+
+	delete [] nums;
+	nums = nullptr;
+
+	return 0;
+}
+*/
+
+/*
+ * The C way
+int main() {
+	int* nums = (int*)malloc(5 * sizeof(int));
+
+	for (int i=0; i<5; i++) {
+		nums[i] = i;
+		std::cout << nums[i] << std::endl;
+	}
+
+	free(nums);
+	nums = NULL;
+
+	return 0;
+}
+*/

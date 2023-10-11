@@ -4,10 +4,14 @@
 #include<ece244/linked_list.hpp>
 
 LinkedList::LinkedList() {
+	std::cout << "LinkedList constructor" << std::endl;
+
 	this->head = nullptr;
 }
 
 LinkedList::~LinkedList() {
+	std::cout << "LinkedList destructor" << std::endl;
+
 	while (!this->is_empty()) {
 		Node *node_to_free = this->head;
 		this->head = this->head->next;
