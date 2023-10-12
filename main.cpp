@@ -2,46 +2,36 @@
 
 #include <iostream>
 #include <ece244/linked_list.hpp>
-#include <ece244/struct_test.hpp>
-
-int main() {
-	LinkedList* list = new LinkedList();
-
-	list->push_front(5);
-
-	return 0;
-}
+#include <ece244/simple_class.hpp>
 
 /*
- * The C++ way
-int main() {
-	int* nums = new int[5];
-
-	for (int i=0; i<5; i++) {
-		nums[i] = i;
-		std::cout << nums[i] << std::endl;
-	}
-
-	delete [] nums;
-	nums = nullptr;
-
-	return 0;
+ * Method 2
+SimpleClass operator+(const SimpleClass& s1, const SimpleClass& s2) {
+	return SimpleClass(s1.get_data() + s2.get_data());
 }
 */
 
 /*
- * The C way
+ * Method 1
+SimpleClass operator+(SimpleClass s1, SimpleClass s2) {
+	return SimpleClass(s1.get_data() + s2.get_data());
+}
+*/
+
 int main() {
-	int* nums = (int*)malloc(5 * sizeof(int));
+	SimpleClass a (5);
+	SimpleClass b (7);
 
-	for (int i=0; i<5; i++) {
-		nums[i] = i;
-		std::cout << nums[i] << std::endl;
-	}
+	SimpleClass c = a + b;
 
-	free(nums);
-	nums = NULL;
+	std::cout << "a get_data: "
+		<< a.get_data() << std::endl;
+
+	std::cout << "b get_data: "
+		<< b.get_data() << std::endl;
+
+	std::cout << "c get_data: "
+		<< c.get_data() << std::endl;
 
 	return 0;
 }
-*/
