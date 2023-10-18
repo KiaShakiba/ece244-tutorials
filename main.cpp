@@ -1,37 +1,24 @@
-// main.cpp
+// main.c2p
 
 #include <iostream>
 #include <ece244/linked_list.hpp>
 #include <ece244/simple_class.hpp>
 
-/*
- * Method 2
-SimpleClass operator+(const SimpleClass& s1, const SimpleClass& s2) {
-	return SimpleClass(s1.get_data() + s2.get_data());
-}
-*/
-
-/*
- * Method 1
-SimpleClass operator+(SimpleClass s1, SimpleClass s2) {
-	return SimpleClass(s1.get_data() + s2.get_data());
-}
-*/
+using namespace std;
 
 int main() {
-	SimpleClass a (5);
-	SimpleClass b (7);
+	LinkedList l1;
 
-	SimpleClass c = a + b;
+	l1.push_back(1);
+	l1.push_back(2);
+	l1.push_back(3);
 
-	std::cout << "a get_data: "
-		<< a.get_data() << std::endl;
+	LinkedList l2;
 
-	std::cout << "b get_data: "
-		<< b.get_data() << std::endl;
+	l1.push_back(4);
 
-	std::cout << "c get_data: "
-		<< c.get_data() << std::endl;
+	cout << "l1: [" << l1 << "]" << std::endl;
+	cout << "l2: [" << l2 << "]" << std::endl;
 
 	return 0;
 }

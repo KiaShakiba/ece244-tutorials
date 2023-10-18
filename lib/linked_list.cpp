@@ -3,15 +3,23 @@
 #include <iostream>
 #include<ece244/linked_list.hpp>
 
+// default constructor
 LinkedList::LinkedList() {
-	std::cout << "LinkedList constructor" << std::endl;
-
 	this->head = nullptr;
 }
 
-LinkedList::~LinkedList() {
-	std::cout << "LinkedList destructor" << std::endl;
+// copy constructor
+LinkedList::LinkedList(const LinkedList& other) {
+	this->head = nullptr;
+	Node* current = other.head;
 
+	while (current != nullptr) {
+		this->push_back(current->data);
+		current = current->next;
+	}
+}
+
+LinkedList::~LinkedList() {
 	while (!this->is_empty()) {
 		Node *node_to_free = this->head;
 		this->head = this->head->next;
@@ -26,10 +34,25 @@ bool LinkedList::is_empty() const {
 void LinkedList::push_front(int data) {
 	// allocate memory for and initialize node
 	Node* node = new Node;
+
 	node->data = data;
 	node->next = this->head;
 
 	this->head = node;
+}
+
+void LinkedList::push_back(int data) {
+	if (this->is_empty()) return this->push_front(data);
+
+	Node* last = this->head;
+	while (last->next != nullptr) last = last->next;
+
+	Node* node = new Node;
+
+	node->data = data;
+	node->next = nullptr;
+
+	last->next = node;
 }
 
 void LinkedList::print() const {
