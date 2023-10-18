@@ -3,9 +3,10 @@
 #pragma once
 
 class SimpleClass {
-public:
+private:
 	int data;
 
+public:
 	SimpleClass(int);
 
 	int get_data() const;
