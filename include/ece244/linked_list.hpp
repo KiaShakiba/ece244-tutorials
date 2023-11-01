@@ -26,6 +26,8 @@ public:
 	void push_back(int);
 	void print() const;
 
+	void print_rec() const;
+
 	friend ostream& operator<<(
 		ostream& stream,
 		const LinkedList& list

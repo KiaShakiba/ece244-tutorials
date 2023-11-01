@@ -3,6 +3,8 @@
 #include <iostream>
 #include<ece244/linked_list.hpp>
 
+void print_rec_helper(Node*);
+
 // default constructor
 LinkedList::LinkedList() {
 	this->head = nullptr;
@@ -70,3 +72,36 @@ void LinkedList::print() const {
 
 	std::cout << std::endl;
 }
+
+void LinkedList::print_rec() const {
+	print_rec_helper(this->head);
+}
+
+void print_rec_helper(Node* node) {
+	if (node == nullptr) {
+		std::cout << "NULL" << std::endl;
+		return;
+	}
+
+	std::cout << node->data << " -> ";
+	print_rec_helper(node->next);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
