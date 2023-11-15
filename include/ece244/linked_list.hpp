@@ -24,6 +24,7 @@ public:
 	bool is_empty() const;
 	void push_front(int);
 	void push_back(int);
+	void remove(int);
 	void print() const;
 
 	void print_rec() const;

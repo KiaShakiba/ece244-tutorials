@@ -57,6 +57,31 @@ void LinkedList::push_back(int data) {
 	last->next = node;
 }
 
+void LinkedList::remove(int data) {
+	if (this->is_empty()) return;
+
+	if (this->head->data == data) {
+		// remove head
+		Node* to_remove = this->head;
+		this->head = this->head->next;
+		delete to_remove;
+
+		return;
+	}
+
+	Node* prev = this->head;
+	while (prev->next->data != data) {
+		prev = prev->next;
+	}
+
+	if (prev->next != nullptr) {
+		// we found the node, delete
+		Node* to_remove = prev->next;
+		prev->next = prev->next->next;
+		delete to_remove;
+	}
+}
+
 void LinkedList::print() const {
 	Node* current = this->head;
 
