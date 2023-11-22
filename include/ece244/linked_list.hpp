@@ -14,6 +14,7 @@ struct Node {
 class LinkedList {
 private:
 	Node* head;
+	int num_nodes = 0;
 
 public:
 	LinkedList();
@@ -21,18 +22,26 @@ public:
 
 	~LinkedList();
 
+	virtual std::string id() const;
+
 	bool is_empty() const;
+	int size() const;
+
 	void push_front(int);
 	void push_back(int);
+
+	Node* pop_front();
+	Node* pop_back();
+
 	void remove(int);
 	void print() const;
-
-	void print_rec() const;
 
 	friend ostream& operator<<(
 		ostream& stream,
 		const LinkedList& list
 	) {
+		stream << list.id() << " ";
+
 		Node* current = list.head;
 
 		while (current != nullptr) {

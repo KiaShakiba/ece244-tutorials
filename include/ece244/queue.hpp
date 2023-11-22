@@ -3,23 +3,23 @@
 #pragma once
 
 #include <iostream>
+#include <ece244/linked_list.hpp>
 
 using namespace std;
 
-struct Node {
-	int data;
-	struct Node* next;
-};
-
-class Queue {
+class Queue : public LinkedList {
 private:
-	Node* head;
+	using LinkedList::push_front;
+	using LinkedList::push_back;
+
+	using LinkedList::pop_front;
+	using LinkedList::pop_back;
+
+	using LinkedList::remove;
 
 public:
-	Queue();
-	~Queue();
+	std::string id() const override;
 
-	bool is_empty() const;
 	void push(int);
 	Node* pop();
 };

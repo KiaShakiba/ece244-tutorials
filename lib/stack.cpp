@@ -1,52 +1,19 @@
-// linked_list.cpp
+// stack.cpp
 
 #include <iostream>
+#include <sstream>
 #include <ece244/stack.hpp>
 
-// default constructor
-Stack::Stack() {
-	this->head = nullptr;
-}
-
-Stack::~Stack() {
-	while (!this->is_empty()) {
-		Node *node_to_free = this->head;
-		this->head = this->head->next;
-		delete node_to_free;
-	}
-}
-
-bool Stack::is_empty() const {
-	return this->head == nullptr;
+std::string Stack::id() const {
+	std::stringstream ss;
+	ss << "stack<" << this->size() << ">";
+	return ss.str();
 }
 
 void Stack::push(int data) {
-	Node* node = new Node;
-
-	node->data = data;
-	node->next = this->head;
-
-	this->head = node;
+	this->push_front(data);
 }
 
 Node* Stack::pop() {
-	if (this->is_empty()) {
-		return nullptr;
-	}
-
-	Node* node_to_remove = this->head;
-	this->head = node_to_remove->next;
-
-	return node_to_remove;
+	return this->pop_front();
 }
-
-
-
-
-
-
-
-
-
-
-
