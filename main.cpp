@@ -7,17 +7,26 @@
 using namespace std;
 
 int main() {
-	Queue queue;
+	LinkedList* my_list[3];
 
-	queue.push(1);
-	queue.push(2);
-	queue.push(3);
+	LinkedList* list = new LinkedList();
 
-	std::cout << "Initial: " << queue << std::endl;
+	my_list[0] = new Queue;
+	my_list[1] = new Stack;
+	my_list[2] = new Queue;
 
-	queue.pop();
+	my_list[0]->push(1);
+	my_list[1]->push(3);
+	my_list[1]->push(2);
+	my_list[1]->push(1);
+	my_list[0]->push(5);
 
-	std::cout << "Updated: " << queue << std::endl;
+	my_list[0]->pop();
+	my_list[1]->pop();
+
+	for (int i=0; i<3; i++) {
+		std::cout << *my_list[i] << std::endl;
+	}
 
 	return 0;
 }

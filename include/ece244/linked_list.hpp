@@ -36,6 +36,16 @@ public:
 	void remove(int);
 	void print() const;
 
+	virtual void push(int) {
+		// throw runtime error
+		throw std::exception();
+	}
+
+	virtual Node* pop() {
+		// throw runtime error
+		throw std::exception();
+	}
+
 	friend ostream& operator<<(
 		ostream& stream,
 		const LinkedList& list

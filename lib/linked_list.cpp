@@ -27,13 +27,12 @@ LinkedList::~LinkedList() {
 		delete node_to_free;
 	}
 }
-/*
+
 std::string LinkedList::id() const {
 	std::stringstream ss;
 	ss << "list<" << this->size() << ">";
 	return ss.str();
 }
-*/
 
 bool LinkedList::is_empty() const {
 	return this->head == nullptr;
